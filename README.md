@@ -1,8 +1,9 @@
 EOC
-=====
+======
 
-The compiler course of IUB, the homepage is here：https://iu.instructure.com/courses/1517577
+**E**ssentials **O**f **C**ompilation: [https://github.com/IUCompilerCourse/Essentials-of-Compilation](https://github.com/IUCompilerCourse/Essentials-of-Compilation).
 
-I am using Erlang to implement the compiler.
+The Book: [https://mitpress.mit.edu/9780262047760/essentials-of-compilation/](https://mitpress.mit.edu/9780262047760/essentials-of-compilation/).
 
-**The structure of this repo is hard to design. I decide to divide it into different chapters, and thus code copy is unavoidabe.**
+Many years ago, the course's textbook was not finished and I coded for some,
+historical resources are now put in `archive` directory.
