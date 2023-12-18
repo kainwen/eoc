@@ -1,0 +1,5 @@
+(program ()
+ (let [(x (read))
+       (y (+ 5 3))]
+   (let [(z (+ (- x y) (read)))]
+     (+ (- z) (+ z x)))))
