@@ -18,3 +18,10 @@
 
 -record(program, {body::exp()}).
 -type program() :: #program{}.
+
+-record(int_value, {value::integer()}).
+-type value() :: #int_value{}.
+
+-type binop() :: '+' | '-'.
+
+-type env() :: [{atom(), value()}].
