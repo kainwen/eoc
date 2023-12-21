@@ -1,0 +1,6 @@
+{program,
+{let_exp,[{x,{read_exp}},{y,{integer_const_exp,8}}],
+         {let_exp,[{z,{plus_exp,{sub_exp,{var_exp,x},{var_exp,y}},
+                                {read_exp}}}],
+                  {plus_exp,{negative_exp,{var_exp,z}},
+                            {plus_exp,{var_exp,z},{var_exp,x}}}}}}.
