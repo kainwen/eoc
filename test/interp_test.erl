@@ -7,7 +7,7 @@ interp_test() ->
     ok = meck:new(utils),
     ok = meck:expect(utils, read_from_stdin, fun() -> 5 end),
 
-    Func = fun(CodeDir, ExpectedDir, CodeFn) ->
+    Func1 = fun(CodeDir, ExpectedDir, CodeFn) ->
 		    CodeAbsFn = filename:join(CodeDir, CodeFn),
 		    AnsAbsFn = filename:join(ExpectedDir,
 					     string:join([CodeFn, "interp"], ".")),
@@ -17,6 +17,20 @@ interp_test() ->
 		    ok
 	    end,
 
-    ok = test_utils:test_framework(Func).
+    ok = test_utils:test_framework(Func1),
+
+    Func2 = fun(CodeDir, ExpectedDir, CodeFn) ->
+		    CodeAbsFn = filename:join(CodeDir, CodeFn),
+		    AnsAbsFn = filename:join(ExpectedDir,
+					     string:join([CodeFn, "interp"], ".")),
+		    {ok, [Ans]} = file:consult(AnsAbsFn),
+		    Prog = parse:scan_and_parse_file(CodeAbsFn),
+		    Prog1 = uniquify:uniquify(Prog),
+		    ?assert(interpreter:interp(Prog1) =:= Ans),
+		    ok
+	    end,
+
+    ok = test_utils:test_framework(Func2).
+    
 
 -endif.

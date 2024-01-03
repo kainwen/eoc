@@ -1,0 +1,8 @@
+{program,{let_exp,[{'x.1',{read_exp}},
+                   {'y.1',{plus_exp,{integer_const_exp,5},
+                                    {integer_const_exp,3}}}],
+                  {let_exp,[{'z.2',{plus_exp,{sub_exp,{var_exp,'x.1'},
+                                                      {var_exp,'y.1'}},
+                                             {read_exp}}}],
+                           {plus_exp,{negative_exp,{var_exp,'z.2'}},
+                                     {plus_exp,{var_exp,'z.2'},{var_exp,'x.1'}}}}}}.

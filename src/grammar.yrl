@@ -83,7 +83,18 @@ bindings ->
 
 let_exp ->
     '(' 'let' '(' bindings ')' exp ')' :
+	ok = check_bindings('$4'),
 	#let_exp{bindings='$4', body='$6'}.
 
 Erlang code.    
 -include("types.hrl").
+
+check_bindings(Bindings) -> 
+    N1 = length(Bindings),    
+    N2 = sets:size(sets:from_list([Id || {Id, _} <- Bindings])),
+    case N1 =:= N2 of
+	true ->
+	    ok;
+	false ->
+	    erlang:error({"Duplicated Var names", Bindings})
+    end.
