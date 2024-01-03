@@ -76,3 +76,5 @@
 -record(cvar_prog, {body::[{label(), cvar_tail()}]}).
 -type cvar_prog() :: #cvar_prog{}.
 
+%% Types for counter
+-type counter() :: pid().
