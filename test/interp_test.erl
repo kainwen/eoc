@@ -30,7 +30,18 @@ interp_test() ->
 		    ok
 	    end,
 
-    ok = test_utils:test_framework(Func2).
+    ok = test_utils:test_framework(Func2),
     
-
+    Func3 = fun(CodeDir, ExpectedDir, CodeFn) ->
+		    CodeAbsFn = filename:join(CodeDir, CodeFn),
+		    AnsAbsFn = filename:join(ExpectedDir,
+					     string:join([CodeFn, "interp"], ".")),
+		    {ok, [Ans]} = file:consult(AnsAbsFn),
+		    Prog = parse:scan_and_parse_file(CodeAbsFn),
+		    Prog1 = rco:remove_complex_operands(Prog),
+		    ?assert(interpreter:interp(Prog1) =:= Ans),
+		    ok
+	    end,
+    
+    ok = test_utils:test_framework(Func3).
 -endif.

@@ -1,0 +1,3 @@
+{program,{let_exp,[{x,{plus_exp,{integer_const_exp,42},
+                                {negative_exp,{integer_const_exp,10}}}}],
+                  {plus_exp,{var_exp,x},{integer_const_exp,10}}}}.
