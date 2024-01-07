@@ -1,0 +1,1 @@
+{cvar_prog,[{{label,start},{cvar_return,{cvar_int,1}}}]}.

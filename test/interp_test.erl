@@ -43,5 +43,24 @@ interp_test() ->
 		    ok
 	    end,
     
-    ok = test_utils:test_framework(Func3).
+    ok = test_utils:test_framework(Func3),
+    
+    Func4 = fun(CodeDir, _ExpectedDir, CodeFn) ->
+		    CodeAbsFn = filename:join(CodeDir, CodeFn),
+		    Prog = parse:scan_and_parse_file(CodeAbsFn),
+		    Prog1 = uniquify:uniquify(Prog),
+		    Prog2 = rco:remove_complex_operands(Prog1),
+		    Prog3 = explicate_control:explicate_control(Prog2),
+		    V = interpreter:interp(Prog),
+		    V1 = interpreter:interp(Prog1),
+		    V2 = interpreter:interp(Prog2),
+		    V3 = cvar_interp:interp(Prog3),
+		    ?assert(V1 =:= V),
+		    ?assert(V2 =:= V),
+		    ?assert(V3 =:= V),
+		    ok
+	    end,
+    
+    ok = test_utils:test_framework(Func4).
+
 -endif.

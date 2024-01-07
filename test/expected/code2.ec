@@ -1,0 +1,13 @@
+{cvar_prog,[{{label,start},
+             {cvar_seq,[{cvar_assign,'x.1',{cvar_read}},
+                        {cvar_assign,'y.1',{cvar_plus,{cvar_int,5},{cvar_int,3}}},
+                        {cvar_assign,'tmp.0',
+                                     {cvar_sub,{cvar_var,'x.1'},{cvar_var,'y.1'}}},
+                        {cvar_assign,'tmp.1',{cvar_read}},
+                        {cvar_assign,'z.2',
+                                     {cvar_plus,{cvar_var,'tmp.0'},{cvar_var,'tmp.1'}}},
+                        {cvar_assign,'tmp.2',{cvar_neg,{cvar_var,'z.2'}}},
+                        {cvar_assign,'tmp.3',
+                                     {cvar_plus,{cvar_var,'z.2'},{cvar_var,'x.1'}}}],
+                       {cvar_return,{cvar_plus,{cvar_var,'tmp.2'},
+                                               {cvar_var,'tmp.3'}}}}}]}.

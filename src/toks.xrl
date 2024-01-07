@@ -17,7 +17,7 @@ read                    : {token, {'read', TokenLine}}.
 -?[0-9]+                : {token, {integer, TokenLine, list_to_integer(TokenChars)}}.
 
 let                     : {token, {'let', TokenLine}}.
-[_a-zA-Z][_a-zA-Z0-9]*  : {token, {id, TokenLine, list_to_atom(TokenChars)}}.
+[_a-zA-Z][._a-zA-Z0-9]*  : {token, {id, TokenLine, list_to_atom(TokenChars)}}.
 
 \t                      : skip_token.
 \n                      : skip_token.

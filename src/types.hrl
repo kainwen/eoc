@@ -71,7 +71,8 @@
 -record(cvar_assign, {var::atom(), exp::cvar_exp()}).
 -type cvar_stmt() :: #cvar_assign{}.
 -record(cvar_return, {exp::cvar_exp()}).
--record(cvar_seq, {stmt::cvar_stmt(), tail::cvar_tail()}).
+-record(cvar_seq, {stmts::[cvar_stmt()],
+		   tail::#cvar_return{}}).
 -type cvar_tail() :: #cvar_return{} | #cvar_seq{}.
 -record(cvar_prog, {body::[{label(), cvar_tail()}]}).
 -type cvar_prog() :: #cvar_prog{}.
