@@ -1,0 +1,6 @@
+ebin/*
+*~
+*.beam
+tok.erl
+grammar.erl
+eoc.d
