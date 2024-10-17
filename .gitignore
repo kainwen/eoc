@@ -1,6 +1,9 @@
+deps/*
+.eoc.plt
 ebin/*
 *~
 *.beam
-tok.erl
+toks.erl
 grammar.erl
 eoc.d
+.erlang.mk/*
