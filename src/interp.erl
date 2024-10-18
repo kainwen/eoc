@@ -4,7 +4,8 @@
 -export_type([value/0]).
 
 -type value() :: {value, integer()}.
--type env() :: env:env().
+-type env() :: env:env() 
+	     | env:env(value()).
 
 -include("ast.hrl").
 
