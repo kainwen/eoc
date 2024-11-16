@@ -7,7 +7,7 @@
 interp_test() ->
     Code = "(program ()
              (let ([x (read)]) (let ([y (read)]) (+ x (- y)))))",
-    Prog = parse:scan_and_parse(Code),
+    Prog = uniquify:uniquify(parse:scan_and_parse(Code)),
     Cnt = counter:new_counter(0),
     ok = meck:new(utils),
     ok = meck:expect(utils, read_from_stdin,
